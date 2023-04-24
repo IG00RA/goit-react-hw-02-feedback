@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Button, ButtonList } from './FeedbackButtons.styled';
 
 export const FeedbackButtons = ({
   addBadFeedback,
@@ -6,17 +7,23 @@ export const FeedbackButtons = ({
   addGoodFeedback,
 }) => {
   return (
-    <ul>
+    <ButtonList>
       <li>
-        <button onClick={addGoodFeedback}>Good</button>
+        <Button type={'good'} onClick={addGoodFeedback}>
+          Good
+        </Button>
       </li>
       <li>
-        <button onClick={addNeutralFeedback}>Neutral</button>
+        <Button type={'neutral'} onClick={addNeutralFeedback}>
+          Neutral
+        </Button>
       </li>
       <li>
-        <button onClick={addBadFeedback}>Bad</button>
+        <Button type={'bad'} onClick={addBadFeedback}>
+          Bad
+        </Button>
       </li>
-    </ul>
+    </ButtonList>
   );
 };
 
