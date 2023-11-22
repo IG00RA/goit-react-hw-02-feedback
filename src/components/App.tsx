@@ -5,15 +5,26 @@ import { Statistics } from './Statistics/Statistics';
 import { Section } from './Section/Section';
 import { Notification } from './Notification/Notification';
 
-export class App extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+interface AppState {
+  good: number;
+  neutral: number;
+  bad: number;
+}
 
-  addFeedback = name => {
-    this.setState(prevState => ({ [name]: prevState[name] + 1 }));
+export class App extends Component<{}, AppState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    };
+  }
+  addFeedback = (name: keyof AppState) => {
+    this.setState((prevState: Readonly<AppState>) => ({
+      ...prevState,
+      [name]: prevState[name] + 1,
+    }));
   };
 
   countTotalFeedback = () => {
