@@ -6,7 +6,11 @@ export const ButtonList = styled.ul`
   margin: 10px;
 `;
 
-export const Button = styled.button`
+interface ButtonType {
+  type: string;
+}
+
+export const Button = styled.button<ButtonType>`
   width: 100px;
   height: 40px;
   border-radius: 5px;
