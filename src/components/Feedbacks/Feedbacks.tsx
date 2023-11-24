@@ -1,7 +1,15 @@
-import PropTypes from 'prop-types';
 import { Button, ButtonList } from './Feedbacks.styled';
+import { FeedbackIncrement } from '../App';
 
-export const Feedbacks = ({ options, onAddFeedback }) => (
+interface FeedbacksProps {
+  options: string[];
+  onAddFeedback: FeedbackIncrement;
+}
+
+export const Feedbacks: React.FC<FeedbacksProps> = ({
+  options,
+  onAddFeedback,
+}) => (
   <ButtonList>
     {options.map((option, i) => {
       return (
@@ -14,8 +22,3 @@ export const Feedbacks = ({ options, onAddFeedback }) => (
     })}
   </ButtonList>
 );
-
-Feedbacks.propTypes = {
-  options: PropTypes.array.isRequired,
-  onAddFeedback: PropTypes.func.isRequired,
-};
