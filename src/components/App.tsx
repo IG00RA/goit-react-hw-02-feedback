@@ -12,7 +12,7 @@ interface AppState {
 }
 
 export interface FeedbackIncrement {
-  (name: keyof AppState): void;
+  (name: string): void;
 }
 
 export class App extends Component<{}, AppState> {
@@ -27,7 +27,7 @@ export class App extends Component<{}, AppState> {
   addFeedback: FeedbackIncrement = name => {
     this.setState((prevState: Readonly<AppState>) => ({
       ...prevState,
-      [name]: prevState[name] + 1,
+      [name]: prevState[name as keyof AppState] + 1,
     }));
   };
 
