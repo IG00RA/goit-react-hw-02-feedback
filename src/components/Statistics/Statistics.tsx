@@ -1,6 +1,18 @@
+import { AppState } from '../App';
 import { StatList } from './Statistics.styled';
 
-export const Statistics = ({ good, neutral, bad, total, positiveFeedback }) => {
+interface StatisticsProps extends AppState {
+  total: () => number;
+  positiveFeedback: () => number;
+}
+
+export const Statistics: React.FC<StatisticsProps> = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positiveFeedback,
+}) => {
   return (
     <StatList>
       <li>
