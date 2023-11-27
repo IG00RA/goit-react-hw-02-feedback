@@ -49,11 +49,11 @@ export class App extends Component<{}, AppState> {
     return (
       <>
         <GlobalStyle />
-        <Section tittle="Please leave feedback">
+        <Section title="Please leave feedback">
           <Feedbacks options={options} onAddFeedback={addFeedback} />
         </Section>
 
-        <Section tittle="Statistics">
+        <Section title="Statistics">
           <Notification
             message="There is no feedback"
             total={countTotalFeedback}

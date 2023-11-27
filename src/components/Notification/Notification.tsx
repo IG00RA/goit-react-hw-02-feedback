@@ -1,5 +1,5 @@
 interface NotificationProps {
-  children: ReactElement<any, any>;
+  children: React.ReactNode;
   message: string;
   total: () => number;
 }
